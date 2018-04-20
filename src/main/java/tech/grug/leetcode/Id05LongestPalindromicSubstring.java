@@ -26,7 +26,7 @@ public class Id05LongestPalindromicSubstring {
     public static void main(String[] args) {
 //        System.out.println("kshdkkdsleillllskllls".substring(4, 6));
         Id05LongestPalindromicSubstring longestPalindromicSubstring = new Id05LongestPalindromicSubstring();
-        System.out.println(longestPalindromicSubstring.longestPalindrome("aabb"));
+        System.out.println(longestPalindromicSubstring.longestPalindrome("kshdkkdsleilllllskllls"));
     }
 
     public String longestPalindrome(String s) {
@@ -59,16 +59,13 @@ public class Id05LongestPalindromicSubstring {
 
 
         List<Character> aba = new ArrayList<>();
-        List<Character> aabb = new ArrayList<>();
+        List<Character> abba = new ArrayList<>();
 
         int length = str.length();
         boolean abaFlag = false, aabbFlag = false;
         for (int i = 0; i < length; i++) {
             if (abaFlag && aabbFlag) {
                 break;
-            }
-            if (index == 0) {
-                return String.valueOf(strArray[index]);
             }
             if (!abaFlag
                     && index - i >= 0
@@ -88,14 +85,14 @@ public class Id05LongestPalindromicSubstring {
                     && index - i >= 0
                     && index + i + 1 < length
                     && strArray[index - i] == strArray[index + i + 1]) {
-                aabb.add(0, strArray[index - i]);
-                aabb.add(strArray[index + i + 1]);
+                abba.add(0, strArray[index - i]);
+                abba.add(strArray[index + i + 1]);
             } else {
                 aabbFlag = true;
             }
 
         }
-        return aba.size() > aabb.size() ? convertList2Array(aba) : convertList2Array(aabb);
+        return aba.size() > abba.size() ? convertList2Array(aba) : convertList2Array(abba);
     }
 
 
@@ -106,6 +103,4 @@ public class Id05LongestPalindromicSubstring {
         }
         return new String(chars);
     }
-
-
 }
