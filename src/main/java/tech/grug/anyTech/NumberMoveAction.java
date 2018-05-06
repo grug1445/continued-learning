@@ -6,19 +6,23 @@ package tech.grug.anyTech;
 public class NumberMoveAction {
 
     public static void main(String[] args) {
-        int number = 10;
-        System.out.println(Integer.toBinaryString(number));
-        number = number << 1;
-        System.out.println(Integer.toBinaryString(number));
-        number = number >> 2;
-        System.out.println(Integer.toBinaryString(number));
-        number = -100;
-        System.out.println(Integer.toBinaryString(number));
-        number = number >>> 1;
-        System.out.println(Integer.toBinaryString(number));
-        number = -100;
-        System.out.println(Integer.toBinaryString(number));
-        number = number >> 1;
-        System.out.println(Integer.toBinaryString(number));
+        System.out.println("10       " + Integer.toBinaryString(10));
+        System.out.println("9        " + Integer.toBinaryString(9));
+        System.out.println("7        " + Integer.toBinaryString(7));
+        System.out.println("-5        " + Integer.toBinaryString(-5));
+        System.out.println("-5&7        " + Integer.toBinaryString(-5 & 7) + "    " + (-5 & 7));
+        System.out.println("-5|7        " + Integer.toBinaryString(-5 | 7) + "    " + (-5 | 7));
+
+        System.out.println("10<<1    " + Integer.toBinaryString(10 << 1) + "    " + (10 << 1));
+        System.out.println("10>>2    " + Integer.toBinaryString(10 >> 2) + "    " + (10 >> 2));
+        System.out.println("10&9     " + Integer.toBinaryString(10 & 9) + "    " + (10 & 9));
+        System.out.println("10|9     " + Integer.toBinaryString(10 | 9) + "    " + (10 | 9));
+        System.out.println("10^9     " + Integer.toBinaryString(10 ^ 9) + "    " + (10 ^ 9));
+        System.out.println("~7       " + Integer.toBinaryString(~7) + "    " + (~7));
+
+        System.out.println("-100     " + Integer.toBinaryString(-100));
+        System.out.println("-100>>1  " + Integer.toBinaryString(-100 >> 1) + "    " + (-100 >> 1));
+        System.out.println("-100<<1  " + Integer.toBinaryString(-100 << 1) + "    " + (-100 << 1));
+        System.out.println("-100>>>1 " + Integer.toBinaryString(-100 >>> 1) + "    " + (-100 >>> 1));
     }
 }
