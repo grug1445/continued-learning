@@ -44,6 +44,7 @@ public class Id09Palindrome {
         if (size == 1) {
             return true;
         } else {
+            //对10001,1001,101等求余
             factor = (int) Math.pow(10, size - 1) + 1;
         }
         //98 908 302 1000
@@ -64,7 +65,7 @@ public class Id09Palindrome {
     }
 
     /**
-     * 余数限制 100030001  余数30000>10000
+     * 余数限制 100030001  余数30000>10000  限制 1000021
      *
      * @return
      */
