@@ -149,7 +149,7 @@ public class SnowFlakeIdGenerator {
         final SnowFlakeIdGenerator idGenerator = new SnowFlakeIdGenerator(1, 1);
         //线程池并行执行10000次ID生成
         ExecutorService executorService = Executors.newCachedThreadPool();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             executorService.execute(() -> {
                 long id = idGenerator.nextId();
                 System.out.println(id);
