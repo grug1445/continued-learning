@@ -89,7 +89,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>25.1-jre</version>
         </dependency>
         <dependency>
             <groupId>com.google.zxing</groupId>
