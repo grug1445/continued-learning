@@ -23,29 +23,67 @@ package tech.grug.leetcode;
  */
 public class FirstBadVersion {
 
+    public int count = 0;
+
+
+    public static void main(String[] args) {
+        FirstBadVersion firstBadVersion = new FirstBadVersion();
+        System.out.println(firstBadVersion.firstBadVersion(30));
+        System.out.println("call isBadVersion count is " + firstBadVersion.count);
+    }
+
+    class Pos {
+        int startPos;
+        int endPos;
+    }
+
     public int firstBadVersion(int n) {
+        Pos pos = new Pos();
+        pos.startPos = 1;
+        pos.endPos = n;
+        return find(pos);
+    }
 
-
-        //偶数
-        if (n % 2 == 0) {
-            if (isBadVersion(n / 2)) {
-
-            } else {
-
-            }
-
-        } else { //奇数
-
+    public int find(Pos pos) {
+        if (pos.endPos == pos.startPos) {
+            return pos.endPos;
         }
-
-
-        return 0;
-
+        int result = pos.endPos - pos.startPos;
+        int temp = result & 1;
+        int position;
+        if (temp == 0) {
+            position = pos.startPos + result / 2;
+        } else {
+            position = pos.startPos + (result + 1) / 2;
+        }
+        if (isBadVersion(position)) {
+            if (!isBadVersion(position - 1)) {
+                return position;
+            }
+            Pos pos1 = new Pos();
+            pos1.startPos = pos.startPos;
+            pos1.endPos = position - 1;
+            return find(pos1);
+        } else {
+            if (isBadVersion(position + 1)) {
+                return position+1;
+            }
+            Pos pos2 = new Pos();
+            pos2.startPos = position + 1;
+            pos2.endPos = pos.endPos;
+            return find(pos2);
+        }
     }
 
 
+
     boolean isBadVersion(int version) {
-        return version / 2 == 0;
+        count++;
+        if (version > 27) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

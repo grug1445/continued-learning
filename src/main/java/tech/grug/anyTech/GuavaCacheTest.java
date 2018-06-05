@@ -1,4 +1,4 @@
-package tech.grug;
+package tech.grug.anyTech;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by feichen on 2018/5/28.
  */
-public class GuavaCache {
+public class GuavaCacheTest {
 
     public static void main(String[] args) throws Exception {
         LoadingCache<String, String> cache = CacheBuilder

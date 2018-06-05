@@ -1,4 +1,4 @@
-package tech.grug.thread;
+package tech.grug.thread.lock;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
