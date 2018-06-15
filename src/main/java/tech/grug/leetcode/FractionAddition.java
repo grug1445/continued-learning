@@ -143,7 +143,6 @@ public class FractionAddition {
         } else {
             if (((a & 1) == 0) && ((b & 1) == 0)) { //ab都为偶数
                 return gcd(a >> 1, b >> 1) << 1;
-
             } else if (((a & 1) == 0) && ((b & 1) == 1)) { //a为偶数,b为奇数
                 return gcd(a >> 1, b);
             } else if (((a & 1) == 1) && ((b & 1) == 0)) { //a为奇数,b为偶数
