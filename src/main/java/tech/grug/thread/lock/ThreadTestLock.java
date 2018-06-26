@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 使用Condition的await()/signal()这种方式能够更加安全和高效地实现线程间协作。
  * Condition是个接口，基本的方法就是await()和signal()方法。
  * Condition依赖于Lock接口，生成一个Condition的基本代码是lock.newCondition() 。
- * 必须要注意的是，Condition 的 await()/signal() 使用都必须在lock保护之内，也就是说，必须在lock.lock()和lock.unlock之间才可以使用。
+ * 必须要注意的是，Condition 的 await()/signal() 使用都必须在lock保护之内，也就是说，必须在lock.distributedLock()和lock.unlock之间才可以使用。
  */
 public class ThreadTestLock {
 

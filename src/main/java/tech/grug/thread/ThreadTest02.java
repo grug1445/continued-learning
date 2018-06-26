@@ -11,9 +11,9 @@ public class ThreadTest02 {
         @Override
         public void run() {
             synchronized (object) {
-                System.out.println("thread" + Thread.currentThread().getName() + " get the lock");
+                System.out.println("thread" + Thread.currentThread().getName() + " get the distributedLock");
                 try {
-                    System.out.println("thread" + Thread.currentThread().getName() + "blocked and release lock");
+                    System.out.println("thread" + Thread.currentThread().getName() + "blocked and release distributedLock");
                     object.wait();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -28,7 +28,7 @@ public class ThreadTest02 {
         @Override
         public void run() {
             synchronized (object) {
-                System.out.println("thread" + Thread.currentThread().getName() + " get the lock");
+                System.out.println("thread" + Thread.currentThread().getName() + " get the distributedLock");
                 System.out.println("thread" + Thread.currentThread().getName() + " wake the waiting thread");
                 object.notify();
                 System.out.println("thread" + Thread.currentThread().getName() + "  done");

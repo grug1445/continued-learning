@@ -58,7 +58,7 @@ public class ThreadTestWaitNotify {
     }
 
     public static void main(String[] args) {
-        String lock = "lock";
+        String lock = "distributedLock";
 
         ThreadSubtract threadSubtract1 = new ThreadSubtract(lock, "subtract1");
         threadSubtract1.start();
