@@ -1,7 +1,5 @@
 package tech.grug.leetcode;
 
-import com.alibaba.fastjson.JSON;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +45,7 @@ public class IncreasingTriplet {
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int num : nums) {
-            if (calcualte(listList, map, num)) {
+            if (calculate(listList, map, num)) {
                 return true;
             }
         }
@@ -55,7 +53,7 @@ public class IncreasingTriplet {
     }
 
 
-    boolean calcualte(List<List<Integer>> origin, Map<Integer, Integer> map, Integer toCompare) {
+    boolean calculate(List<List<Integer>> origin, Map<Integer, Integer> map, Integer toCompare) {
         if (origin.isEmpty()) {
             List<Integer> newGroup = new ArrayList<>(3);
             newGroup.add(toCompare);
