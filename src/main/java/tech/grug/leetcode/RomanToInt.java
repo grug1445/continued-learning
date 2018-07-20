@@ -71,13 +71,14 @@ public class RomanToInt {
         char[] chars = s.toCharArray();
 
         int result = 0;
+        char[] twoChars = new char[2];
+        char[] singleChars = new char[1];
         for (int i = 0; i < chars.length; i++) {
-            char[] twoChars = new char[2];
             twoChars[0] = chars[i];
             if (i + 1 < chars.length) {
                 twoChars[1] = chars[i + 1];
             } else {
-                twoChars = new char[1];
+                twoChars = singleChars;
                 twoChars[0] = chars[i];
             }
             String twoChar = convert(twoChars);
@@ -87,7 +88,6 @@ public class RomanToInt {
                     i++;
                 }
             } else {
-                char[] singleChars = new char[1];
                 singleChars[0] = twoChars[0];
                 String singleChar = convert(singleChars);
                 result += map.get(singleChar);
