@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.Socket;
 
-public class SockerClient {
+public class SocketClient {
 
     public static void main(String[] args) {
         System.out.print("======client=======");

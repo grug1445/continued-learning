@@ -1,0 +1,45 @@
+package com.grug.solid.ISP;
+
+import com.grug.solid.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by feichen on 2019/1/22.
+ */
+public class BasicCoffeeMachineRefactor implements FilterCoffeeMachine {
+
+    private Map<CoffeeSelection, Configuration> configMap;
+    private GroundCoffee groundCoffee;
+    private BrewingUnit brewingUnit;
+
+    public BasicCoffeeMachineRefactor(GroundCoffee coffee) {
+        this.groundCoffee = coffee;
+        this.brewingUnit = new BrewingUnit();
+
+        this.configMap = new HashMap<>();
+        this.configMap.put(CoffeeSelection.FILTER_COFFEE, new Configuration(30, 480));
+    }
+
+    @Override
+    public CoffeeDrink brewFilterCoffee() {
+        Configuration config = configMap.get(CoffeeSelection.FILTER_COFFEE);
+
+        // brew a filter coffee
+        return this.brewingUnit.brew(CoffeeSelection.FILTER_COFFEE, this.groundCoffee, config.getQuantityWater());
+    }
+
+    @Override
+    public void addGroundCoffee(GroundCoffee newCoffee) throws CoffeeException {
+        if (this.groundCoffee != null) {
+            if (this.groundCoffee.getName().equals(newCoffee.getName())) {
+                this.groundCoffee.setQuantity(this.groundCoffee.getQuantity() + newCoffee.getQuantity());
+            } else {
+                throw new CoffeeException("Only one kind of coffee supported for each CoffeeSelection.");
+            }
+        } else {
+            this.groundCoffee = newCoffee;
+        }
+    }
+}
